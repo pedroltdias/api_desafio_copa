@@ -10,29 +10,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_19_093941) do
-  create_table "matches", force: :cascade do |t|
-    t.date "date"
-    t.time "time"
-    t.string "stadium"
+ActiveRecord::Schema[7.0].define(version: 2022_12_19_104529) do
+  create_table "match_teams", force: :cascade do |t|
+    t.integer "team_id", null: false
+    t.integer "match_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "teams"
+    t.index ["match_id"], name: "index_match_teams_on_match_id"
+    t.index ["team_id"], name: "index_match_teams_on_team_id"
+  end
+
+  create_table "matches", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "players", force: :cascade do |t|
     t.string "name"
-    t.string "nationality"
     t.integer "age"
+    t.integer "team_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["team_id"], name: "index_players_on_team_id"
   end
 
   create_table "teams", force: :cascade do |t|
-    t.string "country_name"
+    t.string "name"
+    t.integer "players_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "players"
+    t.index ["players_id"], name: "index_teams_on_players_id"
   end
 
+  add_foreign_key "match_teams", "matches"
+  add_foreign_key "match_teams", "teams"
+  add_foreign_key "players", "teams"
+  add_foreign_key "teams", "players", column: "players_id"
 end

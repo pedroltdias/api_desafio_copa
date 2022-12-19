@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :player do
     name { "MyString" }
-    nationality { "MyString" }
     age { 1 }
+    team { nil }
   end
 end

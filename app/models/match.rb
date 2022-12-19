@@ -1,5 +1,4 @@
 class Match < ApplicationRecord
-    attribute :time, null: true
-    serialize :teams, Array
-    validates :teams, length: {is: 2, message: "one match must have exactly two teams"}
+  has_many :match_team
+  has_many :teams, through: :match_team
 end

@@ -1,4 +1,3 @@
 class Player < ApplicationRecord
-    validates :name, presence: :true
-    validates_length_of :name, minimum: 3
+  belongs_to :team
 end

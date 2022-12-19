@@ -1,5 +1,6 @@
 FactoryBot.define do
   factory :team do
-    country_name { "MyString" }
+    name { "MyString" }
+    players { nil }
   end
 end

@@ -1,4 +1,3 @@
 class Team < ApplicationRecord
-    attribute :players, null: true
-    has_many :players
+  belongs_to :players
 end

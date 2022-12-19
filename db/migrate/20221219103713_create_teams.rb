@@ -1,7 +1,8 @@
 class CreateTeams < ActiveRecord::Migration[7.0]
   def change
     create_table :teams do |t|
-      t.string :country_name
+      t.string :name
+      t.references :players, null: false, foreign_key: true
 
       t.timestamps
     end
