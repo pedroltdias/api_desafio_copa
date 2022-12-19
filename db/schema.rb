@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_19_104529) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_19_121706) do
   create_table "match_teams", force: :cascade do |t|
     t.integer "team_id", null: false
     t.integer "match_id", null: false
@@ -36,14 +36,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_19_104529) do
 
   create_table "teams", force: :cascade do |t|
     t.string "name"
-    t.integer "players_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["players_id"], name: "index_teams_on_players_id"
   end
 
   add_foreign_key "match_teams", "matches"
   add_foreign_key "match_teams", "teams"
   add_foreign_key "players", "teams"
-  add_foreign_key "teams", "players", column: "players_id"
 end
