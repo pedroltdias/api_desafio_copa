@@ -15,7 +15,7 @@ class Api::V1::TeamsController < ApplicationController
         @team = Team.new(team_params)
 
         if @team.save  
-            render json: @team, status: :created_at
+            render json: @team, status: :created
         else
             render json: @team.erros, status: :unprocessable_entity
         end

@@ -1,4 +1,4 @@
-class Api::V1::MatchTeamController < ApplicationController
+class Api::V1::MatchTeamsController < ApplicationController
     before_action :set_match_team, only: [:show, :update, :destroy]
 
     def index
@@ -15,7 +15,7 @@ class Api::V1::MatchTeamController < ApplicationController
         @match_team = MatchTeam.new(match_team_params)
 
         if @match_team.save  
-            render json: @match_team, status: :created_at
+            render json: @match_team, status: :created
         else
             render json: @match_team.erros, status: :unprocessable_entity
         end
