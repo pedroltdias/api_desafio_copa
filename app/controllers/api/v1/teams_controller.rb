@@ -29,7 +29,7 @@ class Api::V1::TeamsController < ApplicationController
         end        
     end
 
-    def destroy
+    def destroy 
         @team.destroy
     end
 

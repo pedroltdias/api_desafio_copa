@@ -8,7 +8,7 @@ class Api::V1::PlayersController < ApplicationController
     end
 
     def show
-        render json: @match_team
+        render json: @player
     end
 
     def create

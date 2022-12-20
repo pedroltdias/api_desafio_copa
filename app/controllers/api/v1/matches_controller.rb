@@ -35,7 +35,7 @@ class Api::V1::MatchesController < ApplicationController
 
     private
     def set_match
-        @match = match.find(params[:id])
+        @match = Match.find(params[:id])
     end
 
     def match_params
