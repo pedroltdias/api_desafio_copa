@@ -39,6 +39,6 @@ class Api::V1::PlayersController < ApplicationController
     end
 
     def player_params
-        params.require(:player).permit(:name, :age, :team_id)
+        params.require(:player).permit(:name, :position, :age, :team_id)
     end
 end

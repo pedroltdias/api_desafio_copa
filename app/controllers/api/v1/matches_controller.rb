@@ -39,6 +39,6 @@ class Api::V1::MatchesController < ApplicationController
     end
 
     def match_params
-        params.require(:match).permit(:name)
+        params.require(:match).permit(:date, :stadium, :home_team_id, :away_team_id)
     end
 end
