@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :match do
     date { "2022-12-19" }
-    stadium { "MyString" }
-    home_team { nil }
-    away_team { nil }
+    stadium { "Mane Garrincha" }
+    home_team { association :team }
+    away_team { association :team }
   end
 end

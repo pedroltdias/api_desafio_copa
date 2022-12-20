@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :player do
-    name { "MyString" }
-    position { "MyString" }
-    age { 1 }
-    team { nil }
+    name { "NomeJogador" }
+    position { "Posicao" }
+    age { 20 }
+    team { association :team }
   end
 end
